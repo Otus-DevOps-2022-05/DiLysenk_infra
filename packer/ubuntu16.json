@@ -1,9 +1,4 @@
 {
-  "variables": {
-    "folder_id": "{{env 'YC_FOLDER'}}",
-    "id_source_image": "{{env 'YC_SOURCE'}}",
-    "service_account_key_file": "{{env 'YC_SERVICE_KEY'}}"
-  },
   "builders": [
     {
       "type": "yandex",
