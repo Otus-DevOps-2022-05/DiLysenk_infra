@@ -1,5 +1,5 @@
 {
-  "service_account_key_file": "path_key.json",
+  "service_account_key_file": "key.json",
   "folder_id": "bebe",
   "source_image_family": "image"
 }
