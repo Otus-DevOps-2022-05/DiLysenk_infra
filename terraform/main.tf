@@ -5,6 +5,7 @@ provider "yandex"
   folder_id = "<идентификатор каталога>"
   zone      = "ru-central1-a"
 
+
 }
 
 resource "yandex_compute_instance" "app" {
@@ -49,6 +50,7 @@ resource "yandex_compute_instance" "app" {
   }
 
 }
+
 
 
 
