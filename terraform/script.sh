@@ -17,3 +17,24 @@ terraform plan
 terraform taint yandex_compute_instance.app
 #Планируем изменения:
 terraform plan
+
+
+  metadata = {
+  ssh-keys = "ubuntu:${file("~/.ssh/yc.pub")}"
+  }
+
+  connection {
+    type        = "ssh"
+    host        = yandex_compute_instance.app.network_interface.0.nat_ip_address
+    user        = "ubuntu"
+    agent       = false
+    # путь до приватного ключа
+    private_key = file("~/.ssh/yc")
+  }
+  provisioner "file" {
+    source      = "files/puma.service"
+    destination = "/tmp/puma.service"
+  }
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
