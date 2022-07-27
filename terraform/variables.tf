@@ -1,8 +1,8 @@
 variable cloud_id{
-  description = "b1gkh3ph48hkh31mdtno"
+  description = "Cloud"
 }
 variable folder_id {
-  description = "b1ghgvpnnargvfujm4p9"
+    description = "Folder"
 }
 variable zone {
   description = "Zone"
@@ -11,14 +11,26 @@ variable zone {
 }
 variable public_key_path {
   # Описание переменной
-  description = "~/.ssh/id_ed25519.pub"
+    description = "Path to the public key used for ssh access"
 }
 variable image_id {
-  description = "fd8uabquugg00lcrdiga"
+    description = "Disk image"
 }
 variable subnet_id{
-  description = "e9bafsjttjgqetoe8mau"
+    description = "Subnet"
 }
 variable service_account_key_file{
-  description = "../../key.json"
+    description = "key .json"
+}
+
+variable token{
+  description = "token"
+}
+
+variable private_key {
+  description = "private key "
+}
+variable instance_count{
+  description = "numbers of cores"
+  default = "2"
 }

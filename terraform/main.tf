@@ -5,12 +5,6 @@ terraform {
     }
   }
 }
-#provider "yandex" {
-#  token     = "AQAAAABhXRusAATuwTDGSuQfCELkphMmO9ECbpo"
-#  cloud_id  = "b1gkh3ph48hkh31mdtno"
-#  folder_id = "b1ghgvpnnargvfujm4p9"
-#  zone      = "ru-central1-a"
-#}
 
 provider "yandex" {
   service_account_key_file = var.service_account_key_file
@@ -23,7 +17,7 @@ resource "yandex_compute_instance" "app" {
   name     = "reddit-app"
 
   resources {
-    cores  = 2
+    cores  = var.instance_count
     memory = 2
   }
 
@@ -48,14 +42,13 @@ resource "yandex_compute_instance" "app" {
     host        = yandex_compute_instance.app.network_interface.0.nat_ip_address
     user        = "ubuntu"
     agent       = false
-    # путь до приватного ключа
-    private_key = file("~/.ssh/id_ed25519")
+    private_key = file(var.private_key)
   }
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "file/puma.service"
     destination = "/tmp/puma.service"
   }
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "file/deploy.sh"
   }
 }
