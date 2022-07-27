@@ -32,5 +32,15 @@ variable "private_key" {
 }
 variable "instance_count" {
   description = "instance_count"
-  default     = "2"
+  default     = "1"
+}
+
+variable db_disk_image {
+  description = "Disk image for reddit db"
+  default = "reddit-db-base"
+}
+
+variable app_disk_image {
+description = "Disk image for reddit app"
+default = "reddit-app-base"
 }
