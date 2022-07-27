@@ -31,6 +31,6 @@ variable private_key {
   description = "private key "
 }
 variable instance_count{
-  description = "numbers of cores"
+  description = "instance_count"
   default = "2"
 }
