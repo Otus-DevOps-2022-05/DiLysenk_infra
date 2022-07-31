@@ -8,3 +8,7 @@ service_account_key_file = "../../key.json"
 token = "AQAAAABhXRusAATuwTDGSuQfCELe232e3kphMmO9ECbpo"
 private_key = "~/.ssh/id_ed25519"
 instance_count = "2"
+s3_access_key            = "YCAJE2I1buU6EgZWwQXX-ntrS1"
+s3_secret_key            = "YCM7nhoN0VLYPjI6jclxsliiI6pfg-QZcDp7lZnt1"
+bucket_name              = "terraform-rb"
+enable_provision         = true
