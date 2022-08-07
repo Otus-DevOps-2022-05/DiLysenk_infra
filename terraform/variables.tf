@@ -54,3 +54,7 @@ variable "s3_secret_key" {
 variable "bucket_name" {
   description = "Name of backet"
 }
+
+variable "enable_provision" {
+  description = "enable provision True or False"
+}

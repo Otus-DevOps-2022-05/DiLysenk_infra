@@ -1,6 +1,6 @@
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default = "reddit-db-base"
+  default     = "reddit-db-base"
 }
 
 variable "public_key_path" {
@@ -9,5 +9,5 @@ variable "public_key_path" {
 }
 
 variable subnet_id {
-description = "Subnets for modules"
+  description = "Subnets for modules"
 }
