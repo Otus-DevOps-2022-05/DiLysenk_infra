@@ -1,4 +1,4 @@
 #!/bin/bash
-sleep 1m
+sleep 10
 sudo systemctl enable mongod
 sudo systemctl start mongod

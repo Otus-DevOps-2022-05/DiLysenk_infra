@@ -2,13 +2,13 @@
   hosts: all                                                # <-- Для каких хостов будут выполняться описанные ниже таски (hosts)
   vars:
     mongo_bind_ip: 0.0.0.0
-    db_host: 51.250.1.75
+    db_host: 10.128.0.23
   tasks:                                                     # <-- Блок тасков (заданий), которые будут выполняться для данных хостов
     - name: Change mongo config file
       become: true                                                   # <-- Выполнить задание от root
       template:
         src: templates/mongod.conf.j2                                # <-- Путь до локального файла-шаблона
-        dest: /etc/mongod.conf                                        # <-- Путь на удаленном хосте
+        dest: /etc/mongodb.conf                                        # <-- Путь на удаленном хосте
         mode: 0644                                                   # <-- Права на файл, которые нужно установить
       tags: db-tag
       notify: restart mongod
@@ -46,11 +46,13 @@
         chdir: /home/ubuntu/reddit # <-- В какой директории выполнить команду
       tags: deploy-tag
 
-  handlers:                                              # <-- Добавим блок handlers и задачу
+  handlers:
+  - name: reload puma
+    become: true
+    systemd: name=puma state=restarted
+    # <-- Добавим блок handlers и задачу
   - name: restart mongod
     become: true
     service: name=mongod state=restarted
 
-  - name: reload puma
-    become: true
-    systemd: name=puma state=restarted
+

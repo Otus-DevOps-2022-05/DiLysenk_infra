@@ -38,6 +38,7 @@ resource "yandex_compute_instance" "app" {
     user        = "ubuntu"
     agent       = false
     private_key = file(var.private_key)
+    timeout     = "1m"
   }
 
   provisioner "file" {
