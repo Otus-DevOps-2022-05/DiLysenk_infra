@@ -1,9 +1,9 @@
 ---
 - name: Configure App
-  hosts: app
+  hosts: all
   become: true
   vars:
-   db_host: "{{db_ip}}"
+   db_host: 10.128.0.11
   tasks:
     - name: Add unit file for Puma
       copy:
