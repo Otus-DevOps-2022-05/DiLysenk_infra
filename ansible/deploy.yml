@@ -16,7 +16,7 @@
     - name: Bundle install
       bundler:
         state: present
-        chdir: /home/ubuntu/reddit
+      chdir: /home/ubuntu/reddit
 
   handlers:
     - name: restart puma
