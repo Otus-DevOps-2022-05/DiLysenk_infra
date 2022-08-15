@@ -5,7 +5,6 @@ output "external_ip_address_db" {
   value = module.db.external_ip_address_db
 }
 
-
 output "name_host_name_app" {
   value = module.app.name_host_name
 }
